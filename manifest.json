@@ -1,0 +1,9 @@
+{
+  "name": "Scrappy Dog Manager 2.1",
+  "short_name": "Scrappy Dog",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fa",
+  "theme_color": "#183b56",
+  "description": "Gestión profesional de clientes y mascotas para grooming."
+}
