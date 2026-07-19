@@ -1,8 +1,9 @@
 [build]
+  command = "node generate-config.mjs"
   publish = "."
 
 [[headers]]
-  for = "/config/supabase-config.js"
+  for = "/supabase-config.js"
   [headers.values]
     Cache-Control = "no-store"
     X-Content-Type-Options = "nosniff"
@@ -13,4 +14,3 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
-

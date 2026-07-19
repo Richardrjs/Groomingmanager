@@ -262,6 +262,7 @@ async function startAuthenticated(){
 
 async function bootstrap(){
  try{
+  if(!window.ScrappyData)throw new Error('No se pudo cargar el servicio de datos. Actualiza la página o avisa al administrador.');
   ScrappyData.init();
   const currentSession=await ScrappyData.session();
   if(currentSession)await startAuthenticated();

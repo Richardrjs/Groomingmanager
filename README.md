@@ -10,7 +10,7 @@ Aplicación de gestión y seguimiento de grooming sincronizada con Supabase.
 
 ## Configuración local
 
-1. Copia `config/supabase-config.example.js` como `config/supabase-config.js`.
+1. Copia `supabase-config.example.js` como `supabase-config.js`.
 2. Completa `supabaseUrl` y `supabasePublishableKey`.
 3. El archivo real está incluido en `.gitignore` y no debe subirse a GitHub.
 
@@ -21,7 +21,7 @@ En **Site configuration → Environment variables**, crea:
 - `SUPABASE_URL`
 - `SUPABASE_PUBLISHABLE_KEY`
 
-`netlify.toml` ejecuta `scripts/generate-config.mjs` durante el build y genera el archivo de configuración que recibe el navegador. La Publishable Key es una credencial pública para aplicaciones cliente; el acceso real está protegido por Auth y RLS.
+`netlify.toml` ejecuta `generate-config.mjs` durante el build y genera el archivo de configuración que recibe el navegador. La Publishable Key es una credencial pública para aplicaciones cliente; el acceso real está protegido por Auth y RLS.
 
 ## Primer uso
 
