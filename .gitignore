@@ -1,0 +1,7 @@
+# Configuración local de Supabase (nunca versionar)
+config/supabase-config.js
+
+# Dependencias y archivos locales
+node_modules/
+.netlify/
+*.log

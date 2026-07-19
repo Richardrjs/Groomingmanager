@@ -14,13 +14,33 @@
   <div class="login-card">
     <div class="logo">🐶</div>
     <h1>Scrappy Dog Manager</h1>
-    <p>Gestión profesional de grooming</p>
+    <p>Gestión profesional sincronizada</p>
     <form id="loginForm">
-      <label>PIN de acceso
-        <input id="pinInput" type="password" inputmode="numeric" maxlength="6" placeholder="PIN inicial: 1234" required>
+      <label>Correo electrónico
+        <input id="emailInput" type="email" autocomplete="email" required>
       </label>
-      <button type="submit">Entrar</button>
-      <small>Después puedes cambiar el PIN en Configuración.</small>
+      <label>Contraseña
+        <input id="passwordInput" type="password" autocomplete="current-password" minlength="8" required>
+      </label>
+      <label id="nameField" hidden>Nombre completo
+        <input id="nameInput" autocomplete="name">
+      </label>
+      <button type="submit">Iniciar sesión</button>
+      <button id="registerButton" type="button" class="secondary">Crear cuenta</button>
+      <small id="authMessage">Usa el usuario creado en Supabase Auth.</small>
+    </form>
+  </div>
+</section>
+
+<section id="setupScreen" class="login-screen" hidden>
+  <div class="login-card">
+    <div class="logo">🏪</div>
+    <h1>Configurar negocio</h1>
+    <p>Este usuario todavía no pertenece a un negocio.</p>
+    <form id="setupForm">
+      <label>Nombre del negocio<input id="businessNameInput" required value="Scrappy Dog Grooming"></label>
+      <button type="submit">Crear negocio</button>
+      <button type="button" class="secondary" onclick="logout()">Cerrar sesión</button>
     </form>
   </div>
 </section>
@@ -33,6 +53,7 @@
   </div>
   <button class="icon-btn" onclick="openSettings()" aria-label="Configuración">⚙️</button>
 </header>
+<div id="syncStatus" class="sync-status">Conectando…</div>
 
 <main>
   <section id="home" class="screen active">
@@ -100,6 +121,11 @@
     <article class="panel"><h2>Servicios más solicitados</h2><div id="serviceReport" class="list"></div></article>
     <article class="panel"><h2>Clientes frecuentes</h2><div id="clientReport" class="list"></div></article>
   </section>
+
+  <section id="grooming" class="screen">
+    <div class="section-head"><h2>Seguimiento</h2><button onclick="openGroomingForm()">+ Iniciar</button></div>
+    <div id="groomingList" class="list"></div>
+  </section>
 </main>
 
 <nav class="bottom-nav">
@@ -109,6 +135,7 @@
   <button data-screen="appointments">📅<span>Citas</span></button>
   <button data-screen="cash">💵<span>Caja</span></button>
   <button data-screen="inventory">📦<span>Inventario</span></button>
+  <button data-screen="grooming">✂️<span>Proceso</span></button>
   <button data-screen="reports">📊<span>Reportes</span></button>
 </nav>
 </div>
@@ -125,6 +152,9 @@
 
 <input id="restoreInput" type="file" accept="application/json" hidden onchange="restoreBackup(event)">
 <input id="photoInput" type="file" accept="image/*" capture="environment" hidden onchange="handlePhotoSelected(event)">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config/supabase-config.js"></script>
+<script src="js/supabase-services.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
