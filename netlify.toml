@@ -1,5 +1,4 @@
 [build]
-  command = "node scripts/generate-config.mjs"
   publish = "."
 
 [[headers]]
@@ -14,3 +13,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
+Fix Netlify build
